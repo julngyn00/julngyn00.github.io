@@ -5,15 +5,38 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Julie Nguyen's Website</title>
+    <title>JN | Julie Nguyen | Software Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!--  Navbar Section  -->
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="#home" id="navbar__logo">HOME</a>
+            <a href="#home" id="navbar__logo">JN</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">1. About</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#skills" class="navbar__links" id="skills-page">2. Skills</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#projects" class="navbar__links" id="projects-page">3. Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#contact" class="navbar__links" id="contact-page">4. Contact</a>
+                </li>
+                <!-- <li class="navbar__btn">
+                    <button class="button" role="button" id="button-test">Button 52</button>
+                </li> -->
+            </ul>
         </div>
     </nav>
+    <script src="app.js"></script>
 </body>
 </html>
