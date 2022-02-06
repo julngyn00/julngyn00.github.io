@@ -1,9 +1,15 @@
 /* 
 #37353a - dark grey
+
 #f8c7b9 - pink
-#d49286 - darker pink
-#fef9fe - slightly off-white white
+#ad776d - hover pink
+
+#fef9fe - slightly off-white white - DON'T USE
 #e0dbe1 - light grey
+#7f7a80 - hover grey
+
+#181715 - black
+#131210- hover black
 */
 
 * {
@@ -15,8 +21,8 @@
 }
 
 .navbar {
-    background: #37353a;
-    height: 70px;
+    background: rgba(24,23,21,0.2);
+    height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,19 +74,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 120px;
+    width: 150px;
     text-decoration: none;
     height: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.navbar__links span {
+    color: #e0dbe1;
     font-size: 0.8rem;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .navbar__links:hover {
-    color: #d49286;
+    color: #ad776d;
     transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 960px) {
+.navbar__links:hover span {
+    color: #7f7a80;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 900px) {
     .navbar__container {
         display: flex;
         justify-content: space-between;
@@ -105,12 +123,12 @@
     }
 
     .navbar__menu.active {
-        background: #37353a;
+        background: rgba(24,23,21,0.2);
         top: 100%;
         opacity: 1;
         transition: all 0.5 ease;
         z-index: 99;
-        height: 40vh;
+        height: auto;
         font-size: 1.6rem;
     }
 
@@ -118,16 +136,26 @@
         padding-left: 25px;
     }
 
+    .navbar__toggle {
+        padding-top: 8px;
+    }
+
     .navbar__toggle .bar {
         width: 25px;
-        height: 3px;
+        height: 2px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
-        background: #fef9fe;
+        background: #f8c7b9;
     }
 
     .navbar__item {
+        /* border-bottom: 1px solid #f8c7b9; */
         width: 100%;
+    }
+    
+    .navbar__item:hover {
+        background: rgba(0,0,0,0.2);;
+        /* opacity: 0.30; */
     }
 
     .navbar__links {
@@ -154,49 +182,204 @@
     }
 
     #mobile-menu.is-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
 
     #mobile-menu.is-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-7px) rotate(-45deg);
     }
 }
 
-.button {
-  font-size: 0.8rem;
-  font-weight: 200;
-  /* letter-spacing: 1px; */
-  padding: 13px 20px 13px;
-  outline: 0;
-  border: 1px solid #fff;
-  cursor: pointer;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  font-family: "Lucida Console", "Courier New", monospace;
+.hero {
+    background: #37353a;
+    background: linear-gradient(to top, #37353a, #181715);
+    margin-top: -90px;
+    padding-bottom: 390px;
+    padding-top: 390px;
+    /* height: 390px; */
 }
 
-.button:after {
-  content: "";
-  background-color: #f8c7b9;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 7px;
-  left: 7px;
-  transition: 0.2s;
+.hero__container {
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items:left;
+    max-width: 900px;
+    margin: 0 auto;
+    height: 100%;
+    text-align: left;
+    padding: 30px;
 }
 
-.button:hover:after {
-  top: 0px;
-  left: 0px;
+.typewriter h1 {
+    display: inline-block;
+    color: #f8c7b9;
+    /* padding-left: 300px; */
+    /* padding-right: 900px; */
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #f8c7b9; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    /* margin-right: 700px; */
+    /* margin: 0 auto; Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 2.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #f8c7b9; }
+  }
+
+.hero__heading {
+    font-size: 40px;
+    margin-bottom: 24px;
+    color: #f8c7b9;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.hero__description {
+    font-size: 20px;
+    margin-bottom: 24px;
+    color: #e0dbe1;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 @media (min-width: 768px) {
-  .button-52 {
-    padding: 13px 50px 13px;
+    .button {
+      padding: 13px 50px 13px;
+    }
   }
+
+.button {
+    font-size: 0.8rem;
+    font-weight: 200;
+    /* letter-spacing: 1px; */
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  .button:after {
+    content: "";
+    background-color: #f8c7b9;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+  }
+  
+  .button:hover:after {
+    top: 0px;
+    left: 0px;
+  }
+
+  .main {
+      background: #37353a;
+      padding: 10rem 0;
+  }
+
+  .main__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      height: 90%;
+      z-index: 1;
+      width: 100%;
+      max-width: 1300px;
+      padding: 0 50px;
+  }
+
+.footer {
+    background: #37353a;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.footer__container {
+    /* background: #000; */
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.footer__message {
+    color: #f8c7b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    text-decoration: none;
+    height: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.footer__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.footer__item {
+    width: 100px;
+    height: 80px;
+}
+
+.footer__links {
+    color: #f8c7b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    height: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.footer__links:hover {
+    color: #ad776d;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 500px) {
+    .footer__menu {
+        display: grid;
+        position: block;
+    }
 }

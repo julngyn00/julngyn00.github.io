@@ -8,3 +8,8 @@ const mobileMenu = () => {
 }
 
 menu.addEventListener('click', mobileMenu);
+
+const scrollTop = $(window).scrollTop();
+const documentHeight = $(document).height();
+const windowHeight = $(window).height();
+const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
