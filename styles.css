@@ -195,7 +195,7 @@
     background: linear-gradient(to top, #37353a, #181715);
     margin-top: -90px;
     padding-bottom: 390px;
-    padding-top: 390px;
+    padding-top: 340px;
     /* height: 390px; */
 }
 
@@ -223,15 +223,24 @@
     /* margin-right: 700px; */
     /* margin: 0 auto; Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
+    font-family: Tahoma, sans-serif;
+    font-size: 4vw;
     animation: 
-      typing 2.5s steps(40, end),
+      typing 2.5s steps(15, end),
       blink-caret .75s step-end infinite;
   }
   
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }
-    to { width: 100% }
+    to { width: 50% }
+  }
+
+  @media screen and (min-width: 1400px) {
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 75% }
+      }
   }
   
   /* The typewriter cursor effect */
@@ -247,10 +256,22 @@
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
-.hero__description {
+.hero__subheading {
     font-size: 20px;
-    margin-bottom: 24px;
+    margin-bottom: 10px;
+    color: #ad776d;
+    width: 300px;
+    line-height: 1.6;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.hero__description {
+    text-align: left;
+    margin-top: 10px;
+    width: 300px;
+    line-height: 1.6;
     color: #e0dbe1;
+    font-size: 14px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -260,43 +281,77 @@
     }
   }
 
-.button {
-    font-size: 0.8rem;
-    font-weight: 200;
-    /* letter-spacing: 1px; */
-    padding: 13px 20px 13px;
-    outline: 0;
-    border: 1px solid #fff;
+  /* <!-- HTML !--> */
+  
+  
+  /* CSS */
+  .button-48 {
+    appearance: none;
+    background-color: #FFFFFF;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #000000;
     cursor: pointer;
+    display: inline-block;
+    font-family: Clarkson,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1em;
+    margin: 0;
+    opacity: 1;
+    outline: 0;
+    padding: 1.5em 2.2em;
     position: relative;
-    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    text-rendering: geometricprecision;
+    text-transform: uppercase;
+    transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    font-family: "Lucida Console", "Courier New", monospace;
+    vertical-align: baseline;
+    white-space: nowrap;
   }
   
-  .button:after {
+  .button-48:before {
+    animation: opacityFallbackOut .5s step-end forwards;
+    backface-visibility: hidden;
+    background-color: #EBEBEB;
+    clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
     content: "";
-    background-color: #f8c7b9;
-    width: 100%;
-    z-index: -1;
-    position: absolute;
     height: 100%;
-    top: 7px;
-    left: 7px;
-    transition: 0.2s;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateZ(0);
+    transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+    width: 100%;
   }
   
-  .button:hover:after {
-    top: 0px;
-    left: 0px;
+  .button-48:hover:before {
+    animation: opacityFallbackIn 0s step-start forwards;
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+  
+  .button-48:after {
+    background-color: #FFFFFF;
+  }
+  
+  .button-48 span {
+    z-index: 1;
+    position: relative;
   }
 
   .main {
-      background: #37353a;
-      padding: 10rem 0;
-  }
+    background: #37353a;
+    /* background: linear-gradient(to top, #37353a, #181715); */
+    /* margin-top: -90px; */
+    padding-bottom: 390px;
+    padding-top: 390px;
+    /* height: 390px; */
+}
 
   .main__container {
       display: grid;
@@ -339,8 +394,8 @@
     color: #f8c7b9;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 25%;
+    justify-content: left;
+    width: 100%;
     text-decoration: none;
     height: 100%;
     font-size: 0.8rem;
@@ -383,3 +438,69 @@
         position: block;
     }
 }
+
+.arrow__footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 50px;
+    width: 100%;
+    /* background-color: red; */
+    color: white;
+    text-align: left;
+    animation-delay: 3.5s;
+    animation: fadeIn linear 5s;
+ }
+
+.arrow__scroll {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: -10px;
+    width: 300px;
+    line-height: 1.6;
+    color: #e0dbe1;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    transform: rotate(-90deg);
+    backface-visibility:hidden;
+    transform-origin: 0% 0%;
+}
+
+.arrow__scroll ul li a{
+	-webkit-backface-visibility: hidden;    
+	backface-visibility: hidden;
+	display:inline-block;
+ }
+
+.arrow {
+    border: solid #e0dbe1;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+
+.down {
+    /* margin-top: -100px; */
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+@media screen and (max-width: 600px) {
+    .arrow__footer {
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      75% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+  }
+  
