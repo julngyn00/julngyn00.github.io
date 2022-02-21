@@ -145,7 +145,7 @@
     }
 
     .navbar__menu.active {
-        background: rgba(24,23,21,0.2);
+        /* background: rgba(24,23,21,0.2); */
         top: 100%;
         opacity: 1;
         transition: all 0.5 ease;
@@ -252,6 +252,12 @@
       typing 2.5s steps(15, end),
       blink-caret .75s step-end infinite;
   }
+
+  @media screen and (max-width: 900px) {
+    .typewriter h1 {
+        font-size: 8vw;
+    }
+  }
   
   /* The typing effect */
   @keyframes typing {
@@ -301,7 +307,7 @@
 .main {
     background: #37353a;
     padding-bottom: 390px;
-    padding-top: 350px;
+    padding-top: 300px;
 }
 
   .main__container {
